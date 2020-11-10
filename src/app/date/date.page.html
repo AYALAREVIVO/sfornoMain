@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>date</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-fab vertical="top"  horizontal="end"   slot="fixed">
+  <ion-fab-button (click)="close()">
+    <ion-icon name="close"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content>
+  <!-- <ion-item>
+    <ion-label>Employee</ion-label>
+    <ion-select [(ngModel)]="month">
+      <ion-option *ngFor="let m of month" [value]="m"></ion-option>
+      
+    </ion-select>
+  </ion-item> -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+בחירת תאריך      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>חודש</ion-label>
+      <ion-select  [(ngModel)]="date.month" okText="שמירה" cancelText="ביטול">
+        <ion-select-option *ngFor="let m of month" [value]="m">{{m}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>יום</ion-label>
+      <ion-select [(ngModel)]="date.day" value="brown" okText="שמירה" cancelText="ביטול">
+        <ion-select-option *ngFor="let d of day" [value]="d">{{d}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number " maxlength="4" [(ngModel)]="date.year"></ion-input>
+      <ion-label>שנה</ion-label>
+
+    </ion-item>
+    <ion-item>
+    <ion-checkbox #c (click)="c.checked==true?date.return=0:date.return=-1"></ion-checkbox>
+    <ion-label>שמירת תאריך לכל החיים</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-input *ngIf="date.return!=-1" type="number"  [(ngModel)]="date.return"></ion-input>
+
+  </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="date.name" name="price"></ion-input>
+      <ion-label>שם ותיאור</ion-label>
+
+    </ion-item>
+
+      <button ion-button type="submit" (click)="save()" block>שמירת תאריך</button>
+  </ion-list>
+</ion-content>
+<!-- (click)="date.return==true?date.return=-1:date.return=0" -->

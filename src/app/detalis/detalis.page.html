@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalis</ion-title>
+ 
+  </ion-toolbar>
+</ion-header>
+<ion-fab vertical="top"  horizontal="end"   slot="fixed">
+  <ion-fab-button (click)="close()">
+    <ion-icon name="close"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-content >
+
+
+    <form  (ngSubmit)="seve()">
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="product.name" name="name"></ion-input>
+        <ion-label>שם המוצר</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="product.amount" name="amount"></ion-input>
+        <ion-label>כמות</ion-label>
+  
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="product.price" name="price"></ion-input>
+        <ion-label>מחיר</ion-label>
+  
+      </ion-item>
+      <ion-item>
+        <ion-img *ngIf="product.img!=null" style="width: 100%;height:100%;" [src]="product.img" [title]="product.img"></ion-img>
+       </ion-item>
+      <ion-item>
+        <ion-input type="file" (change)="sendImage($event)"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>{{nameButtonSave}}</button>
+    </form>
+</ion-content>
